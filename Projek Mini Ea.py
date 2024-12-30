@@ -1,4 +1,6 @@
+import math
 import pyfiglet
+
 def welcome_message():
     message = "PENGHITUNG INTEGRAL DAN VOLUME BENDA PUTAR"
     ascii_art = pyfiglet.figlet_format(message, font="slant", width=100)
@@ -37,7 +39,6 @@ if metode_integral == 1:
         return integral_riemann_left(disk_area, a, b, n)
 
     if __name__ == "__main__":
-        import math
         fungsi_input = input("Masukkan fungsi f(x) (gunakan 'math' untuk fungsi matematika, misal 'math.sin(x)'): ")
         def fungsi(x):
             return eval(fungsi_input)
@@ -69,7 +70,6 @@ if metode_integral == 2:
         return integral_trapesium(disk_area, a, b, n)
 
     if __name__ == "__main__":
-        import math
         fungsi_input = input("Masukkan fungsi f(x) (gunakan 'math' untuk fungsi matematika, misal 'math.sin(x)'): ")
         def fungsi(x):
             return eval(fungsi_input)
