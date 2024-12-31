@@ -1,6 +1,5 @@
-import math
 import pyfiglet
-
+import math
 def welcome_message():
     message = "PENGHITUNG INTEGRAL DAN VOLUME BENDA PUTAR"
     ascii_art = pyfiglet.figlet_format(message, font="slant", width=100)
@@ -8,7 +7,7 @@ def welcome_message():
 
 welcome_message()
 
-metode_integral = int(input("Pilih metode pengintegralan. 1: Riemann, 2: Trapesium: "))
+metode_integral = int(input("Pilih metode pengintegralan. 1. Riemann, 2. Trapesium (masukkan angkanya saja): "))
 
 if metode_integral == 1:
     def integral_riemann_left(f, a, b, n):
@@ -38,22 +37,21 @@ if metode_integral == 1:
 
         return integral_riemann_left(disk_area, a, b, n)
 
-    if __name__ == "__main__":
-        fungsi_input = input("Masukkan fungsi f(x) (gunakan 'math' untuk fungsi matematika, misal 'math.sin(x)'): ")
-        def fungsi(x):
-            return eval(fungsi_input)
+    fungsi_input = input("Masukkan fungsi f(x) (gunakan 'math' untuk fungsi matematika, misal 'math.sin(x)'): ")
+    def fungsi(x):
+        return eval(fungsi_input)
 
-        a = float(input("Input batas bawah: "))
-        b = float(input("Input batas atas: "))
-        n = int(input("Input jumlah subinterval: "))
+    a = float(input("Input batas bawah: "))
+    b = float(input("Input batas atas: "))
+    n = int(input("Input jumlah subinterval: "))
 
-        hasil_integral = integral_riemann_left(fungsi, a, b, n)
-        volume = volume_objek(fungsi, a, b, n)
+    hasil_integral = integral_riemann_left(fungsi, a, b, n)
+    volume = volume_objek(fungsi, a, b, n)
 
-        print(f"Hasil integral dengan metode Riemann kiri: {hasil_integral}")
-        print(f"Volume benda putar dengan metode cakram (Riemann kiri): {volume}")
+    print(f"Hasil integral dengan metode Riemann kiri: {hasil_integral}")
+    print(f"Volume benda putar dengan metode cakram (Riemann kiri): {volume}")
 
-if metode_integral == 2:
+elif metode_integral == 2:
     def integral_trapesium (f, a, b, n):
         dx = (b - a) / n
         total = 0.5 * (f(a) + f(b))
@@ -69,20 +67,19 @@ if metode_integral == 2:
 
         return integral_trapesium(disk_area, a, b, n)
 
-    if __name__ == "__main__":
-        fungsi_input = input("Masukkan fungsi f(x) (gunakan 'math' untuk fungsi matematika, misal 'math.sin(x)'): ")
-        def fungsi(x):
-            return eval(fungsi_input)
+    fungsi_input = input("Masukkan fungsi f(x) (gunakan 'math' untuk fungsi matematika, misal 'math.sin(x)'): ")
+    def fungsi(x):
+        return eval(fungsi_input)
 
-        a = float(input("Masukkan batas bawah (a): "))
-        b = float(input("Masukkan batas atas (b): "))
-        n = int(input("Masukkan jumlah subinterval (n): "))
+    a = float(input("Masukkan batas bawah (a): "))
+    b = float(input("Masukkan batas atas (b): "))
+    n = int(input("Masukkan jumlah subinterval (n): "))
 
-        hasil_integral = integral_trapesium(fungsi, a, b, n)
-        volume = volume_objek(fungsi, a, b, n)
+    hasil_integral = integral_trapesium(fungsi, a, b, n)
+    volume = volume_objek(fungsi, a, b, n)
 
-        print(f"Hasil integral dengan metode trapesium: {hasil_integral}")
-        print(f"Volume benda putar dengan metode cakram: {volume}")
+    print(f"Hasil integral dengan metode trapesium: {hasil_integral}")
+    print(f"Volume benda putar dengan metode cakram: {volume}")
 
 else:
     print("Input yg bener dawg ^^")
